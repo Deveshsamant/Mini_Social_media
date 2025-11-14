@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Panel - Mini Social Network</title>
+    <link rel="stylesheet" href="user_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-network-wired"></i> Mini Social Network</h1>
+            <p>Connect with friends, share posts, and discover new connections</p>
+        </header>
+        
+        <!-- User Panel -->
+        <div id="userPanel" class="user-panel">
+            <!-- Top Navigation -->
+            <div class="top-nav">
+                <h2><i class="fas fa-hashtag"></i> MiniSocial</h2>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-info">
+                    <span id="userName"></span>
+                    <button id="logoutButton" title="Logout"><i class="fas fa-sign-out-alt"></i></button>
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Main Content Area -->
+                <div class="main-feed">
+                    <!-- Home Feed -->
+                    <div id="homeTab" class="tab-content active">
+                        <div class="feed-header">
+                            <h3><i class="fas fa-home"></i> Home Feed</h3>
+                        </div>
+                        <div id="homeFeed" class="feed-container">
+                            <!-- Posts will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Friends Tab -->
+                    <div id="friendsTab" class="tab-content">
+                        <div class="friends-header">
+                            <h3><i class="fas fa-user-friends"></i> Your Friends</h3>
+                        </div>
+                        <div id="friendsList" class="friends-container">
+                            <!-- Friends will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Friend Posts Tab -->
+                    <div id="friendPostsTab" class="tab-content">
+                        <div class="friend-posts-header">
+                            <h3><i class="fas fa-user"></i> <span id="friendNameHeader"></span>'s Posts</h3>
+                            <button id="backToFriendsButton" class="back-button"><i class="fas fa-arrow-left"></i> Back to Friends</button>
+                        </div>
+                        <div id="friendPostsContainer" class="feed-container">
+                            <!-- Friend's posts will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Search Tab -->
+                    <div id="searchTab" class="tab-content">
+                        <div class="search-header">
+                            <h3><i class="fas fa-search"></i> Search</h3>
+                        </div>
+                        <div class="search-container">
+                            <div class="search-form">
+                                <input type="text" placeholder="Search for users or posts...">
+                                <button><i class="fas fa-search"></i> Search</button>
+                            </div>
+                            <div class="search-results">
+                                <p>Search results will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Add Post Tab -->
+                    <div id="addPostTab" class="tab-content">
+                        <div class="add-post-header">
+                            <h3><i class="fas fa-plus-circle"></i> Create Post</h3>
+                        </div>
+                        <div class="add-post-container">
+                            <div class="post-form">
+                                <textarea placeholder="What's on your mind?"></textarea>
+                                <div class="post-actions">
+                                    <button class="post-button"><i class="fas fa-paper-plane"></i> Post</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Profile Tab -->
+                    <div id="profileTab" class="tab-content">
+                        <div class="profile-header">
+                            <div class="profile-info">
+                                <div class="profile-pic">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="profile-details">
+                                    <h3 id="userProfileName"></h3>
+                                    <p><span id="friendCount">0</span> friends</p>
+                                </div>
+                            </div>
+                            <button class="edit-profile-button"><i class="fas fa-edit"></i> Edit Profile</button>
+                        </div>
+                        <div class="profile-content">
+                            <div class="profile-posts-header">
+                                <h4><i class="fas fa-images"></i> Your Posts</h4>
+                            </div>
+                            <div id="profilePosts" class="profile-posts">
+                                <!-- User posts will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Friend Suggestions Sidebar (on the right) -->
+                <div class="sidebar">
+                    <div class="suggestions-header">
+                        <h3><i class="fas fa-user-friends"></i> Friend Suggestions</h3>
+                    </div>
+                    <div id="friendSuggestions" class="suggestions-container">
+                        <!-- Friend suggestions will be loaded here -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Navigation -->
+            <div class="bottom-nav">
+                <div class="nav-item active" data-tab="homeTab">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </div>
+                <div class="nav-item" data-tab="friendsTab">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Friends</span>
+                </div>
+                <div class="nav-item" data-tab="searchTab">
+                    <i class="fas fa-search"></i>
+                    <span>Search</span>
+                </div>
+                <div class="nav-item" data-tab="addPostTab">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Create</span>
+                </div>
+                <div class="nav-item" data-tab="profileTab">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script src="user_panel.js"></script>
+</body>
+</html>

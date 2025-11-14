@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Social Network</title>
+    <link rel="stylesheet" href="admin_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-network-wired"></i> Mini Social Network</h1>
+            <p>Connect with friends, share posts, and discover new connections</p>
+            <div class="user-login-button">
+                <a href="user_login.html" id="userLoginLink">User Login</a>
+            </div>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#" id="showUsersLink" class="active"><i class="fas fa-users"></i> Show Users</a></li>
+                <li><a href="#" id="showFriendsLink"><i class="fas fa-user-friends"></i> Show Friends</a></li>
+                <li><a href="#" id="showPostsLink"><i class="fas fa-comments"></i> Show All Posts</a></li>
+                <li><a href="#" id="showMutualFriendsLink"><i class="fas fa-handshake"></i> Mutual Friends</a></li>
+                <li><a href="#" id="suggestFriendsLink"><i class="fas fa-user-plus"></i> Suggest Friends</a></li>
+                <li><a href="#" id="showTrendingLink"><i class="fas fa-fire"></i> Trending Posts</a></li>
+                <li><a href="#" id="searchUsersLink"><i class="fas fa-search"></i> Search Users</a></li>
+                <li><a href="#" id="addUserLink"><i class="fas fa-user-plus"></i> Add User</a></li>
+                <li><a href="#" id="addFriendshipLink"><i class="fas fa-link"></i> Add Friendship</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+            <section id="usersSection" class="content-section active">
+                <h2><i class="fas fa-users"></i> Network Users</h2>
+                <div class="form-container">
+                    <p>Browse all users in the social network. Currently managing <strong>20,000 users</strong> and <strong>200,000 friendships</strong>.</p>
+                </div>
+                <div id="usersList" class="data-container">
+                    <!-- Users will be displayed here -->
+                </div>
+            </section>
+            
+            <section id="friendsSection" class="content-section">
+                <h2><i class="fas fa-user-friends"></i> Friendships</h2>
+                <div class="form-container">
+                    <p>View all connections between users in the network.</p>
+                </div>
+                <div id="friendsList" class="data-container">
+                    <!-- Friendships will be displayed here -->
+                </div>
+            </section>
+            
+            <section id="postsSection" class="content-section">
+                <h2><i class="fas fa-comments"></i> All Posts</h2>
+                <div class="form-container">
+                    <p>Explore posts from users across the network. Click the ❤️ button to like any post.</p>
+                </div>
+                <div id="postsList" class="data-container">
+                    <!-- Posts will be displayed here -->
+                </div>
+            </section>
+            
+            <section id="mutualFriendsSection" class="content-section">
+                <h2><i class="fas fa-handshake"></i> Mutual Friends</h2>
+                <div class="form-container">
+                    <h3><i class="fas fa-star"></i> Top 20 Mutual Friendships (Automatic)</h3>
+                    <p>Below are the first 20 mutual friendships found in the network:</p>
+                    <button id="showAutoMutualFriends"><i class="fas fa-sync"></i> Show Top 20 Mutual Friendships</button>
+                </div>
+                <div id="autoMutualFriendsList" class="data-container">
+                    <!-- Automatic mutual friendships will be displayed here -->
+                </div>
+                <div class="form-container">
+                    <h3><i class="fas fa-search"></i> Search for Specific Mutual Friends</h3>
+                    <form id="mutualFriendsForm">
+                        <div class="form-group">
+                            <label for="userA"><i class="fas fa-user"></i> User A ID:</label>
+                            <input type="number" id="userA" min="1" placeholder="Enter User A ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userB"><i class="fas fa-user"></i> User B ID:</label>
+                            <input type="number" id="userB" min="1" placeholder="Enter User B ID" required>
+                        </div>
+                        <button type="submit"><i class="fas fa-handshake"></i> Find Mutual Friends</button>
+                    </form>
+                </div>
+                <div id="mutualFriendsList" class="data-container">
+                    <!-- Mutual friends results will be displayed here -->
+                </div>
+            </section>
+            
+            <section id="suggestFriendsSection" class="content-section">
+                <h2><i class="fas fa-user-plus"></i> Suggest Friends</h2>
+                <div class="form-container">
+                    <p>Get friend recommendations based on mutual connections using both BFS and DFS algorithms.</p>
+                    <form id="suggestFriendsForm">
+                        <div class="form-group">
+                            <label for="suggestUser"><i class="fas fa-user"></i> User ID:</label>
+                            <input type="number" id="suggestUser" min="1" placeholder="Enter User ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="suggestCount"><i class="fas fa-list-ol"></i> Number of Suggestions:</label>
+                            <input type="number" id="suggestCount" min="1" max="50" value="20" placeholder="Enter number of suggestions">
+                        </div>
+                        <button type="submit"><i class="fas fa-magic"></i> Get Friend Suggestions</button>
+                    </form>
+                </div>
+                <div id="suggestFriendsList" class="data-container">
+                    <!-- Friend suggestions will be displayed here -->
+                </div>
+            </section>
+            
+            <section id="trendingSection" class="content-section">
+                <h2><i class="fas fa-fire"></i> Trending Posts</h2>
+                <div class="form-container">
+                    <p>View the most popular posts based on likes and shares. Interact with posts to see real-time updates.</p>
+                    <form id="postActionsForm">
+                        <div class="form-group">
+                            <label for="postId"><i class="fas fa-hashtag"></i> Post ID (optional):</label>
+                            <input type="number" id="postId" min="1" placeholder="Enter Post ID to interact">
+                        </div>
+                        <div class="form-group">
+                            <label for="action"><i class="fas fa-cogs"></i> Action:</label>
+                            <select id="action">
+                                <option value="like"><i class="fas fa-heart"></i> Like</option>
+                                <option value="share"><i class="fas fa-share"></i> Share</option>
+                            </select>
+                        </div>
+                        <button type="submit"><i class="fas fa-bolt"></i> Update Post</button>
+                    </form>
+                </div>
+                <div id="trendingList" class="data-container">
+                    <!-- Trending posts will be displayed here -->
+                </div>
+            </section>
+            
+            <section id="searchUsersSection" class="content-section">
+                <h2><i class="fas fa-search"></i> Search Users</h2>
+                <div class="form-container">
+                    <p>Search for users by name in the network of 20,000 users.</p>
+                    <form id="searchUsersForm">
+                        <div class="form-group">
+                            <label for="searchUserName"><i class="fas fa-user"></i> User Name:</label>
+                            <input type="text" id="searchUserName" placeholder="Enter user name to search" required>
+                        </div>
+                        <button type="submit"><i class="fas fa-search"></i> Search Users</button>
+                    </form>
+                </div>
+                <div id="searchUsersResult" class="data-container">
+                    <!-- Search results will be displayed here -->
+                </div>
+            </section>
+            
+            <section id="addUserSection" class="content-section">
+                <h2><i class="fas fa-user-plus"></i> Add New User</h2>
+                <div class="form-container">
+                    <p>Add a new user to the social network. Ensure the User ID is unique.</p>
+                    <form id="addUserForm">
+                        <div class="form-group">
+                            <label for="newUserId"><i class="fas fa-id-badge"></i> User ID:</label>
+                            <input type="number" id="newUserId" min="1" placeholder="Enter unique User ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newUserName"><i class="fas fa-signature"></i> User Name:</label>
+                            <input type="text" id="newUserName" placeholder="Enter User Name" required>
+                        </div>
+                        <button type="submit"><i class="fas fa-user-plus"></i> Add User</button>
+                    </form>
+                </div>
+                <div id="addUserResult" class="data-container">
+                    <!-- Add user results will be displayed here -->
+                </div>
+            </section>
+            
+            <section id="addFriendshipSection" class="content-section">
+                <h2><i class="fas fa-link"></i> Add Friendship</h2>
+                <div class="form-container">
+                    <p>Create a friendship connection between two existing users.</p>
+                    <form id="addFriendshipForm">
+                        <div class="form-group">
+                            <label for="friend1Id"><i class="fas fa-user"></i> First User ID:</label>
+                            <input type="number" id="friend1Id" min="1" placeholder="Enter First User ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="friend2Id"><i class="fas fa-user"></i> Second User ID:</label>
+                            <input type="number" id="friend2Id" min="1" placeholder="Enter Second User ID" required>
+                        </div>
+                        <button type="submit"><i class="fas fa-link"></i> Add Friendship</button>
+                    </form>
+                </div>
+                <div id="addFriendshipResult" class="data-container">
+                    <!-- Add friendship results will be displayed here -->
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

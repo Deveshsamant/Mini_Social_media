@@ -1,0 +1,21 @@
+{
+  "name": "mini-social-network",
+  "version": "1.0.0",
+  "description": "A mini social network application",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  },
+  "keywords": [
+    "social-network",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "Devesh Samant",
+  "license": "MIT"
+}
